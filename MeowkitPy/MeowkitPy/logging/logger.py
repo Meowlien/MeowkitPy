@@ -18,7 +18,14 @@ class Logger():
         print(f' ! [Warning]: {info}')
 
     def LogError(info: str):
-        print(f' @ [Error]: {info}')
+        print(f'!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+        print(f'|')
+        print(f'|> [Error]: {info}')
+        print(f'|')
+        print(f'!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+
+    def dividers(lbl: str=None):
+        print(f'   ----------------------------------------')
 
 # Global
 log = Logger
