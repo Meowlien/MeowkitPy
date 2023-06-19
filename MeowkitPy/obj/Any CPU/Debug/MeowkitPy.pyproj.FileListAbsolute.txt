@@ -1,0 +1,2 @@
+D:\Waylon\Meowlien\Workspace\Projects\MeowkitPy\MeowkitPy\obj\Any CPU\Debug\MeowkitPy.pyproj.SuggestedBindingRedirects.cache
+D:\Waylon\Meowlien\Workspace\Projects\MeowkitPy\MeowkitPy\obj\Any CPU\Debug\MeowkitPy.pyproj.CoreCompileInputs.cache

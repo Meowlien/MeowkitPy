@@ -28,6 +28,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="MeowkitPy\data\validation.py" />
     <Compile Include="MeowkitPy\logging\logger.py" />
     <Compile Include="program.py" />
     <Compile Include="MeowkitPy\__init__.py" />
@@ -35,6 +36,7 @@
   <ItemGroup>
     <Folder Include="MeowkitPy\" />
     <Folder Include="MeowkitPy\logging\" />
+    <Folder Include="MeowkitPy\data\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="requirements.txt" />
