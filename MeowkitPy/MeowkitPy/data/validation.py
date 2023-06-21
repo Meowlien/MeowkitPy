@@ -63,3 +63,31 @@ def dict_filtered(collection: dict[str, any], param: str, match_type: StringMatc
         return {key: value for key, value in collection.items() if str(key).startswith(param)}
     elif match_type == StringMatchType.EndsWith:
         return {key: value for key, value in collection.items() if str(key).endswith(param)}
+
+# 列表過濾器
+'''
+param: collection   >> 列表實例
+param: type         >> 過濾型態
+param: only         >> 唯一性(False：返回第一個查到的結果)
+'''
+def list_filter(collection: list, type, only: bool=False):
+
+    found: bool = False
+
+    for item in collection:
+
+        # 形態比對
+        if isinstance(item, type):
+
+            # 唯一性 >> 第一個查詢到的結果
+            if only == False:
+                return item
+
+            # 先前已查到過相同的形態
+            if found == True:
+                return None
+            else:
+                found = True # 標記第一次查詢到
+
+    # 找不到
+    return None
