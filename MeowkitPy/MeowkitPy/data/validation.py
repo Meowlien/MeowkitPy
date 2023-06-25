@@ -68,26 +68,28 @@ def dict_filtered(collection: dict[str, any], param: str, match_type: StringMatc
 '''
 param: collection   >> 列表實例
 param: type         >> 過濾型態
-param: only         >> 唯一性(False：返回第一個查到的結果)
+param: uniqueness   >> 唯一性(False：返回第一個查到的結果)
 '''
-def list_filter(collection: list, type, only: bool=False):
+def list_filter(collection: list, type, uniqueness: bool=False):
 
     found: bool = False
+    found_item: type = None
 
     for item in collection:
 
         # 形態比對
         if isinstance(item, type):
 
-            # 唯一性 >> 第一個查詢到的結果
-            if only == False:
-                return item
+            # 唯一性條件
+            if uniqueness == False:
+                return item # 無需唯一：返回首個符合條件的結果
 
-            # 先前已查到過相同的形態
-            if found == True:
-                return None
+            # 唯一性檢查：是否已找到
+            if found == True: return None # 非唯一：返回失敗
             else:
-                found = True # 標記第一次查詢到
+                # 標記首次匹配結果
+                found = True
+                found_item = item
 
-    # 找不到
-    return None
+    # 如果沒有找到默認 None
+    return found_item
