@@ -1,9 +1,6 @@
 ﻿
 #from MeowkitPy import app
 
-
-
-
 class WebhookHandler(object):
 
     def __init__(self, idx: int) -> None:

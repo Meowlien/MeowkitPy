@@ -1,0 +1,17 @@
+[project]
+name = "MeowkitPy"
+version = "0.0.2"
+description = "Meowlien Studio kit tools for Flask"
+
+[build-system]
+requires = [ "setuptools", "wheel",]
+build-backend = "setuptools.build_meta"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+[tool.poetry.packages]
+include = [ "MeowkitPy/**/*.py",]
+
+[tool.poetry.exclude]
+paths = [ "tests", "example_module",]

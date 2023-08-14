@@ -29,9 +29,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="MeowkitPy\data\validation.py" />
+    <Compile Include="MeowkitPy\data\__init__.py" />
     <Compile Include="MeowkitPy\logging\logger.py" />
+    <Compile Include="MeowkitPy\logging\__init__.py" />
     <Compile Include="program.py" />
     <Compile Include="MeowkitPy\__init__.py" />
+    <Compile Include="setup.py" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="MeowkitPy\" />
@@ -39,6 +42,7 @@
     <Folder Include="MeowkitPy\data\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="pyproject.toml" />
     <Content Include="requirements.txt" />
   </ItemGroup>
   <ItemGroup>
