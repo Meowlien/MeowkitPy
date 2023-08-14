@@ -1,7 +1,26 @@
-SET solution=MeowkitPy
-SET proj_name=meowkit
-SET ver_python=3.9
+@ECHO OFF
+CD %~dp0
+ECHO --------------------------------
 
-SET root=%~dp0../%solution%
-SET env=env-%proj_name%-py%ver_python%
-SET path=%~dp0../%solution%/%env%/Scripts
+SET Solution=MeowkitPy
+SET Proj=MeowkitPy
+
+SET PyVersion=3.9
+SET PyDir="C:\Program Files (x86)\Microsoft Visual Studio\Shared\Python39_64"
+SET PATH=%PyDir%;%PATH%
+
+SET Root=%~dp0../%Solution%
+
+SET Venv=env-meowkit-py%PyVersion%
+SET VenvDir=%Root%/%env%/Scripts
+
+
+SET python="%PyDir:~1,-1%\python.exe"
+if not exist %python% (
+    ECHO "Cannot find PATH of python.exe"
+    exit /b 1
+) else (
+    ECHO "Found >> %python:~1,-1%"
+    ECHO --------------------------------
+)
+

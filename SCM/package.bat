@@ -1,32 +1,34 @@
 @ECHO OFF
 
-SET solution=MeowkitPy
-SET proj_name=meowkit
-SET ver_python=3.9
-
-SET root=%~dp0../%solution%
-SET env=env-%proj_name%-py%ver_python%
-SET path=%~dp0../%solution%/%env%/Scripts
 
 
-SET setup=%~dp0../%solution%/setup.py
+CALL %~dp0env.bat
+if errorlevel 1 ( exit 1 )
 
-if exist %path%/python.exe (
-    ECHO "Found >> %env%"
+REM Update Version
+%python% package.py 0 0 1
+for /f "usebackq delims=" %%i in ("version.txt") do (
+    SET "version=%%i"
+)
+REM ECHO [DEBUG]: %version%
 
-    REM Update Version
-    %path%/python.exe package.py
-    for /f "usebackq delims=" %%i in ("%file_path%") do (
-        SET "version=%%i"
-    )
-    ECHO %version%
 
-    CD %root%
-    REM %path%/python.exe %setup% bdist_wheel --dist-dir %~dp0
-    %path%/python.exe -m build --outdir %~dp0/Package
+if not exist %~dp0Package ( md %~dp0Package )
+if not exist %~dp0Package\Cache ( md %~dp0Package\Cache )
 
-) else (
-    ECHO "Cannot found the env << %path%"
+REM 緩存舊版本
+for %%i in (%~dp0Package\*.gz %~dp0Package\*.whl) do (
+    move "%%i" "%~dp0Package\Cache"
+    ECHO "Move: %%i"
 )
 
-pause
+CD %Root%
+ECHO "Starting Packaging"
+REM %python% -m build --outdir %~dp0/Package
+
+REM SET setup=%~dp0../%Solution%/setup.py
+REM %python% %setup% bdist_wheel --dist-dir %~dp0
+
+ECHO --------------------------------
+ECHO Done
+ECHO.
